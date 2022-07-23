@@ -115,7 +115,60 @@
                 <button id="connectBtn" class="connectWalletBtn" onclick="init()">
                     Connect Wallet
                 </button>
+                <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
             </div>
+            <script>
+                window.userWalletAddress = null
+                const connectBtn = document.getElementById('connectBtn')
+                const userWallet = document.getElementById('userWallet')
+            
+                function toggleButton() {
+                  if (!window.ethereum) {
+                    connectBtn.innerText = 'MetaMask is not installed'
+                    connectBtn.classList.remove('bg-purple-500', 'text-white')
+                    connectBtn.classList.add('bg-gray-500', 'text-gray-100', 'cursor-not-allowed')
+                    return false
+                  }
+            
+                  connectBtn.addEventListener('click', loginWithMetaMask)
+                }
+            
+                async function loginWithMetaMask() {
+                  const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+                    .catch((e) => {
+                      console.error(e.message)
+                      return
+                    })
+                  if (!accounts) { return }
+            
+                  window.userWalletAddress = accounts[0]
+                  userWallet.innerText = window.userWalletAddress
+                  connectBtn.innerText = 'Sign out of MetaMask'
+            
+                  connectBtn.removeEventListener('click', loginWithMetaMask)
+                  setTimeout(() => {
+                    connectBtn.addEventListener('click', signOutOfMetaMask)
+                  }, 200)
+                }
+            
+                function signOutOfMetaMask() {
+                  window.userWalletAddress = null
+                  userWallet.innerText = ''
+                  connectBtn.innerText = 'Sign in with MetaMask'
+            
+                  connectBtn.removeEventListener('click', signOutOfMetaMask)
+                  setTimeout(() => {
+                    connectBtn.addEventListener('click', loginWithMetaMask)
+                  }, 200)
+                }
+            
+                window.addEventListener('DOMContentLoaded', () => {
+                  toggleButton()
+                });
+              </script>
+            </body>
+            
+            </html>
         </section>
     </main>
     <script src="./index.js"></script>
