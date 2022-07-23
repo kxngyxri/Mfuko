@@ -1,0 +1,24 @@
+{
+  "name": "mfuko",
+  "version": "1.0.0",
+  "description": "Find the Mfuko Market Code  attached",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kxngyxri/Mfuko.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kxngyxri/Mfuko/issues"
+  },
+  "homepage": "https://github.com/kxngyxri/Mfuko#readme",
+  "dependencies": {
+    "@walletconnect/node": "^1.0.0",
+    "@walletconnect/qrcode-modal": "^1.7.8"
+  }
+}

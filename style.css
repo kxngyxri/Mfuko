@@ -3,14 +3,17 @@
   font-family: 'Open Sans';
   --text-primary: #b6b6b6;
   --text-secondary: #ececec;
-  --bg-primary: #23232e;
+  --bg-primary: #36DEFD;
   --bg-secondary: #141418;
   --transition-speed: 600ms;
+  --border-radius: 10px;
 }
 
 body {
   color: black;
   background-color: white;
+  display: flex;
+  flex-direction: row;
   margin: 0;
   padding: 0;
 }
@@ -33,10 +36,10 @@ main {
 }
 
 .navbar {
-  position: fixed;
+  /* position: fixed; */
   background-color: var(--bg-primary);
   transition: width 600ms ease;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 .navbar-nav {
@@ -114,8 +117,7 @@ main {
   transition: var(--transition-speed);
 }
 
-.logo-text
-{
+.logo-text {
   display: inline;
   position: absolute;
   left: -999px;
@@ -167,13 +169,11 @@ main {
     display: inline;
   }
 
-  .navbar:hover .logo svg
-  {
+  .navbar:hover .logo svg {
     margin-left: 11rem;
   }
 
-  .navbar:hover .logo-text
-  {
+  .navbar:hover .logo-text {
     left: 0px;
   }
 }
@@ -213,4 +213,62 @@ main {
 
 .solar #solarIcon {
   display: block;
+}
+
+
+/* Home styles */
+
+.homeContianer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2vh 2vw;
+}
+
+.headerHomeContainer {
+  /* border: 2px solid black; */
+  background: #36DEFD;
+  border-radius: var(--border-radius);
+  margin: 20vh 0 10vh 0;
+  padding: 23px;
+  width: 70vw;
+}
+
+.headerHomeContainer>div>h2,
+p {
+  text-align: center;
+  font-weight: 600;
+}
+
+.connectCtaContainer {
+  background: #36DEFD;
+  /* border: 2px solid black; */
+  border-radius: var(--border-radius);
+  padding: 23px;
+  text-align: center;
+}
+
+.connectCtaContainer>div>p {
+  margin: 2vh 0;
+}
+
+.connectWalletBtn {
+  margin: 2vh 0;
+  background-color: #002979;
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  outline: none;
+  padding: 13px;
+  transition: 600ms ease-in-out;
+}
+
+.connectWalletBtn:hover {
+  /* background-color: white; */
+  border: 1px solid black;
+  /* color: #002979; */
+  /* color: white; */
+  color: black;
+  background-color: inherit;
+  cursor: pointer;
 }
